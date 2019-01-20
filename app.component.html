@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Tasks!
+  </h1>
+</div>
+<form (submit)="onSubmit()">
+  <p>{{ newTask | json }}</p>
+  <p>Title:</p>
+  <input type="text" name="newTask.title" [(ngModel)]="newTask.title" /><br>
+  <p>Description:</p>
+  <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+  <input type="submit" value="Create Task" />
+</form>
+<div>>
+  <h2>Task List</h2>
+  <ul>
+    <li *ngFor="let x of tasks">
+      <div>
+        <h3>{{ x.title }}</h3>
+        <p>{{ x.description }}</p>
+      </div>
+      <div>
+        <button (click) = "editButton(x._id)">EDIT</button>
+        <button (click) = "deleteButton(x._id)">DELETE</button>
+      </div>
+    </li>
+  </ul>
+</div>
+<div>
+  <p>{{ change.title }}</p>
+  <form (submit)="updateSubmit()">
+    <p>Title:</p>
+    <input type="text" name="reTask.title" [(ngModel)]="reTask.title" placeholder="{{ change.title }}"/><br>
+    <p>Description:</p>
+    <input type="text" name="reTask.description" [(ngModel)]="reTask.description" placeholder="{{ change.description }}"/><br>
+    <input type="submit" value="submit">
+  </form>
+</div>
+
+<router-outlet></router-outlet>
