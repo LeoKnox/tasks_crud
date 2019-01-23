@@ -25,15 +25,16 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    this._httpService.addTask(this.newTask).subscribe(added => {
-      console.log(`added $(added)`);
-    })
-    this.newTask = { title: "", description: ""}
+    this._httpService.addTask(this.newTask)
+      .subscribe(added => {
+        console.log(`added ${added}`);
+      })
+    this.newTask = { title: "", description: "" }
   }
   
   getTasksFromService(){
     this._httpService.getTasks().subscribe(data => {
-      console.log("Got our tasks!", data);
+      console.log('Got our tasks!', data);
       this.tasks = data;
     })
     /*this._httpService.getOne(id).subscribe(uno => {
@@ -42,16 +43,18 @@ export class AppComponent implements OnInit {
     })*/
   }
 
-  updateButton(id: String) {
-    this._httpService.changeTask(id, this.reTask).subscribe(upsy => {
-      console.log('updated');
-    })
+  updateSubmit(id: String) {
+    this._httpService.changeTask(id, this.reTask)
+      .subscribe(upsy => {
+        console.log('updated', upsy);
+      });
   }
 
   deleteButton(id: String) {
-    this._httpService.deleteTask(id).subscribe(del => {
-      console.log(del)
-    })
+    this._httpService.deleteTask(id)
+      .subscribe(del => {
+        console.log(del);
+      });
   }
 
   editButton(id: String) {

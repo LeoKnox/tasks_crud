@@ -29,7 +29,7 @@
 </div>
 <div>
   <p>{{ change.title }}</p>
-  <form (submit)="updateSubmit()">
+  <form (submit)="updateSubmit(change._id)">
     <p>Title:</p>
     <input type="text" name="reTask.title" [(ngModel)]="reTask.title" placeholder="{{ change.title }}"/><br>
     <p>Description:</p>

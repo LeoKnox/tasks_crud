@@ -16,18 +16,18 @@ export class HttpService {
 
   getOne(id){
     console.log('whatever' +  id)
-    return this._http.get(`/tasks/${id}`)
+    return this._http.get(`/tasks/${id}`);
   }
 
   addTask(newtask){
-    return this._http.post('/tasks/', newtask)
+    return this._http.post('/tasks/', newtask);
   }
 
   changeTask(id, reTask){
-    return this._http.put(`/tasks/${id}`, reTask)
+    return this._http.put(`/tasks/${id}`, reTask);
   }
 
   deleteTask(id){
-    return this._http.delete(`/tasks/${id}`)
+    return this._http.delete(`/tasks/${id}`);
   }
 }
